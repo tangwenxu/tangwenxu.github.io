@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Java 基础 - </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="icon" href="https://tangwenxu.github.io/favicon.png">
+
+  
+  
+  <link rel="stylesheet" href="/css/style.min.6aa5eecd4ca7c47fb2ca9b0775a7bd787e3e64a2eadf0fef8c9f924498f49127.css">
+  
+
+  
+
+</head>
+
+<body class='page page-default-single'>
+  <div id="main-menu-mobile" class="main-menu-mobile">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/posts/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+  <div class="wrapper">
+    <div class='header'>
+  <div class="container">
+    <div class="logo">
+      <a href="https://tangwenxu.github.io"><img alt="Logo" src="/" /></a>
+    </div>
+    <div class="logo-mobile">
+      <a href="https://tangwenxu.github.io"><img alt="Logo" src="/" /></a>
+    </div>
+    <div id="main-menu" class="main-menu">
+  <ul>
+    
+    
+    <li class="menu-item-home">
+      <a href="/">
+        <span>Home</span>
+      </a>
+    </li>
+    
+    <li class="menu-item-docs">
+      <a href="/posts/">
+        <span>Docs</span>
+      </a>
+    </li>
+    
+  </ul>
+</div>
+    <button id="toggle-main-menu-mobile" class="hamburger hamburger--slider" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+  </div>
+</div>
+
+
+    
+    
+    
+    
+
+    
+    
+<h1 class="title">Java 基础</h1>
+<div class="content ">
+  <h6 id="一java-基础">一、Java 基础</h6>
+<ol>
+<li>JDK 和 JRE 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">jdk：jdk java development toolkit,java开发者工具箱，提供给java开发者用于开发、调试java程序
+
+jre：java runtime enviroment，java运行时环境，可以让系统运行java应用程序。
+
+jdk包含jre
+</code></pre></div><ol start="2">
+<li>== 和 equals 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">== 引用数据类型比较地址值
+equals 调用对象的equals方法进行比较
+</code></pre></div><ol start="3">
+<li>两个对象的 hashCode()相同，则 equals()也一定为 true，对吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">java规范规定，hashCode方法和equals方法必须成对重写。Object类中的hashCode方法将对象在内存中地址转化为一个非负整数，，而equals方法将会按照开发者定义的逻辑进行比较判断对象是否相等。因此hashCode相同，equals（）并不一定为true。
+</code></pre></div><ol start="4">
+<li>final在 java 中有什么作用？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">final关键字在java中可作用于 类、方法、变量上。作用是声明一个类不可被继承；成员方法不能被覆盖；变量值不能被改变。
+</code></pre></div><ol start="5">
+<li>java中的 Math.round(-1.5) 等于多少？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">round方法用来返回一个最靠近的long值，如果超过long的范围，则返回Long.MIN_VALUE或 Long.MAX_VALUE
+</code></pre></div><ol start="6">
+<li>String 属于基础的数据类型吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">String不属于基本数据类型
+</code></pre></div><ol start="7">
+<li>java中操作字符串都有哪些类？它们之间有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">String 常见的字符串操作类，不可变对象。每次对该对象的操作都会生成一个新的对象（除非常量池中有）
+StringBuffer字符串拼接类，在调用toString()方法前对该对象的操作不会生成新的对象，避免了内存占用，其中的方法大部分被synchronized关键字修饰，故线程安全。
+StringBuilder字符串拼接类，在调用toString()方法前对该对象的操作不会生成新的对象，避免了内存占用，非线程安全。
+</code></pre></div><ol start="8">
+<li>String str=&quot;i&quot;与 String str=new String(“i”)一样吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">不一样，new String(&#34;i&#34;)方法会在堆上创建一个新对象。使用String str = &#34;i&#34;,如果字符&#34;i&#34;在字符串常量池中存在，将会直接返回引用地址，并不会创建新的对象。若存在则返回常量池中的对象引用。
+</code></pre></div><ol start="9">
+<li>如何将字符串反转？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">StringBuilder.revers方法，或者倒序输出String.charAt()
+</code></pre></div><ol start="10">
+<li>String 类的常用方法都有那些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">indexOf、 charAt、subString、split、format、toLowerCase、toUpperCase、valueOf
+</code></pre></div><p>11.抽象类必须要有抽象方法吗？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">可以不含
+</code></pre></div><p>12.普通类和抽象类有哪些区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">抽象类不能进行实例化；
+抽象类可以有抽象方法，抽象方法只需声明，无需实现；
+含有抽象类的方法，必须被声明为抽象类；
+抽象类的子类，必须实现抽象类的所有抽象方法，否则子类也应该是抽象的；
+抽象方法不能被声明为静态的；
+抽象方法不能被声明为private；
+抽象类不能被final修饰；
+</code></pre></div><p>13.抽象类能使用 final 修饰吗？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">不能，final修饰的类是不能被继承的。
+</code></pre></div><p>14.接口和抽象类有什么区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">接口时默认被声明为public abstract，接口中的成员变量类型默认为public static final。
+抽象类中可以有构造方法，接口中不能有构造方法；
+抽象类中可以有普通成员变量，接口中没有普通成员变量；
+抽象类中可以包含非抽象的普通方法，接口中的所有方法必须是抽象的，不能有非抽象普通方法，可以有default方法；
+抽象类中可以包含静态方法，接口中不能包含静态方法；
+抽象类的接口中都可以包含静态成员变量，抽象类中的静态成员变量的访问类型可以任意，但接口中定义的变量只能是并默认为public static final类型；
+一类可以实现多个接口，但只能继承一个抽象类；
+</code></pre></div><ol start="15">
+<li>java中 IO 流分为几种？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">两种 字节流和字符流
+</code></pre></div><ol start="16">
+<li>BIO、NIO、AIO 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">BIO 同步阻塞IO流
+NIO 同步非阻塞IO流
+AIO 异步非阻塞IO流
+</code></pre></div><ol start="17">
+<li>Files的常用方法都有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Files.exists():判断文件是否存在
+Files.creatFile():创建一个文件
+Files.creatDirectory():创建一个路径
+Files.delete():删除一个文件或者文件夹
+Files.copy():复制文件
+Files.move():移动文件
+Files.size():查看文件个数
+Files.read():读取文件
+Files.write():写入文件
+</code></pre></div><ol start="18">
+<li>String.format()使用方法</li>
+</ol>
+<p><!-- raw HTML omitted -->链接地址<!-- raw HTML omitted --></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">对字符串进行格式化
+	占位符格式为： %[index$][标识][最小宽度]转换符 
+	可用标识：
+	   -，在最小宽度内左对齐，右边用空格补上。
+	可用转换符：
+	   s，字符串类型。
+	   c，字符类型，实参必须为char或int、short等可转换为char类型的数据类型，否则抛IllegalFormatConversionException异常。
+	   b，布尔类型，只要实参为非false的布尔类型，均格式化为字符串true，否则为字符串false。
+	   n，平台独立的换行符（与通过 System.getProperty(&#34;line.separator&#34;) 是一样的）
+对整数进行格式化
+	占位符格式为： %[index$][标识]*[最小宽度]转换符 
+	可用标识
+		-，在最小宽度内左对齐,不可以与0标识一起使用。
+		0，若内容长度不足最小宽度，则在左边用0来填充。
+		#，对8进制和16进制，8进制前添加一个0,16进制前添加0x。
+		+，结果总包含一个+或-号。
+		空格，正数前加空格，负数前加-号。
+		,，只用与十进制，每3位数字间用,分隔。
+		(，若结果为负数，则用括号括住，且不显示符号。
+	可用转换符	
+		b，布尔类型，只要实参为非false的布尔类型，均格式化为字符串true，否则为字符串false。
+		d，整数类型（十进制）。
+		x，整数类型（十六进制）。
+		o，整数类型（八进制）
+		n，平台独立的换行符, 也可通过System.getProperty(&#34;line.separator&#34;)获取
+对日期时间进行格式化
+	占位符格式为： %[index$]t转换符
+	可用转换符：
+		日期的转换符
+			c，星期六 十月 27 14:21:20 CST 2007
+			F，2007-10-27
+			D，10/27/07
+			r，02:25:51 下午
+			T，14:28:16
+			R，14:28
+			b, 月份简称
+			B, 月份全称
+			a, 星期简称
+			A, 星期全称
+			C, 年前两位（不足两位补零）
+			y, 年后两位（不足两位补零）
+			j, 当年的第几天
+			m, 月份（不足两位补零）
+			d, 日期（不足两位补零）
+			e, 日期（不足两位不补零）
+		时间的转换符
+			H, 24小时制的小时（不足两位补零）
+			k, 24小时制的小时（不足两位不补零）
+			I, 12小时制的小时（不足两位补零）
+			i, 12小时制的小时（不足两位不补零）
+			M, 分钟（不足两位补零）
+			S, 秒（不足两位补零）
+			L, 毫秒（不足三位补零）
+			N, 毫秒（不足9位补零）
+			p, 小写字母的上午或下午标记，如中文为“下午”，英文为pm
+			z, 相对于GMT的时区偏移量，如+0800
+			Z, 时区缩写，如CST
+			s, 自1970-1-1 00:00:00起经过的秒数
+			Q, 自1970-1-1 00:00:00起经过的豪秒
+其他转换符
+	 &#34;&lt;&#34; 用于格式化前一个转换符所描述的参数。
+</code></pre></div><ol start="19">
+<li></li>
+</ol>
+<h6 id="二容器">二、容器</h6>
+<ol start="18">
+<li>java 容器都有哪些？</li>
+</ol>
+<ul>
+<li>List
+<ul>
+<li>ArrayList
+<ul>
+<li>基于数组实现的，其特点是查询快，增删慢</li>
+</ul>
+</li>
+<li>LinkedList
+<ul>
+<li>基于链表实现，相比ArrayList，其特点是查询慢，增删快</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Map
+<ul>
+<li>HashMap
+<ul>
+<li>无序</li>
+<li>key可以为null，但只能有1个key为null。value可以为任意值</li>
+<li>线程不安全</li>
+</ul>
+</li>
+<li>LinkedHashMap
+<ul>
+<li>有序，依靠链表实现有序</li>
+<li>key可以为null，但只能有1个key为null。value可以为任意值</li>
+<li>线程不安全</li>
+</ul>
+</li>
+<li>HashTable
+<ul>
+<li>线程安全</li>
+<li>不允许key或value为null</li>
+</ul>
+</li>
+<li>ConcurrentHashMap
+<ul>
+<li>不允许key或value为null</li>
+<li>线程安全，基于段进行同步，速度比HashTable快</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Set
+<ul>
+<li>HashSet
+<ul>
+<li>不允许重复</li>
+<li>允许值为null，但只能有1个</li>
+<li>无序</li>
+<li>没有索引，所以不包含索引操作的方法</li>
+</ul>
+</li>
+<li>LinkedHashSet
+<ul>
+<li>不允许重复</li>
+<li>允许值为null，但只能有1个</li>
+<li>有序，由链表实现有序</li>
+<li>没有索引，所以不包含索引操作的方法</li>
+</ul>
+</li>
+<li>TreeSet
+<ul>
+<li>允许重复</li>
+<li>不允许null值</li>
+<li>没有索引，不包含索引操作方法</li>
+<li>支持排序：自然排序和定制排序</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="19">
+<li>Collection 和 Collections 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Collection是java集合层次结构中最根本的接口
+Collections是一个包装类，包含有各种各样集合操作的静态多态方法，不能实例化，像一个Collection集合框架中的工具类
+</code></pre></div><ol start="20">
+<li>List、Set、Map 之间的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">List、Set都是继承自Collection接口，Map则不是
+List特点：元素有放入顺序，元素可重复 ；
+Set特点：元素无放入顺序，元素不可重复，重复元素会覆盖掉，（注意：元素虽然无放入顺序，但是元素在set中的位置是有该元素的HashCode决定的，其位置其实是固定的，加入Set 的Object必须定义equals()方法 ，另外list支持for循环，也就是通过下标来遍历，也可以用迭代器，但是set只能用迭代，因为他无序，无法用下标来取得想要的值。
+</code></pre></div><ol start="21">
+<li>HashMap 和 Hashtable 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HashMap是线程不安全的，HashTable线程安全；
+HashMap可以接收key为null，HashTable不可接收key为null
+</code></pre></div><ol start="22">
+<li>如何决定使用 HashMap 还是 TreeMap？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">TreeMap的key要求实现java.lang.Comparable接口。所以迭代的时候，TreeMap默认按照Key值升序排序列；TreeMap的实现基于红黑树，适用于按自然顺序或者自定义顺序遍历Key；
+HashMao的key实现散列hashCode()，分布是散列的、均匀的、不支持排序；数据结构主要是桶（数组），链表或红黑树。适合在Map中插入、删除和定位元素。
+</code></pre></div><ol start="23">
+<li>说一下 HashMap 的实现原理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HashMap内部维护了一个Node（实现了Map.Entry）数组table，数组的每一个元素被称为桶。新增元素首先会计算hashcode,hashcode高低位异或后按照数组的长度进行取余操作计算新增元素属于哪个桶。如果桶为空，则放入桶中，如果桶不为空，则以该桶为头节点以链表的形式向后追加元素，当链表的长度大于等于TREEIFY_THRESHOLD(默认为8)时，将链表转为红黑树。当红黑树的节点个数少于等于UNTREEIFY_THRESHOLD(默认为6)时，将红黑树转为链表。table包含的元素个数大于等于 threshold*loadFactor时，触发table扩容。扩容时需要重新计算下标。
+</code></pre></div><ol start="24">
+<li>说一下 HashSet 的实现原理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HashSet内部使用的HashMap，value使用的都是内部维护的一个简单Object对象。
+</code></pre></div><ol start="25">
+<li>ArrayList 和 LinkedList 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ArrayList是使用数据实现的，查询快，增删慢。
+LinkedList是使用链表实现，增删快，查询慢。
+</code></pre></div><ol start="26">
+<li>如何实现数组和 List 之间的转换？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">使用工具类Arrays.asList方法
+</code></pre></div><ol start="27">
+<li>ArrayList 和 Vector 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ArrayList是线程不安全的，扩容时容量增长50%
+Vector是线程安全的，扩容时容量翻倍
+</code></pre></div><ol start="28">
+<li>Array 和 ArrayList 有何区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Array数组，调用Array.newInstance 等同于 int[] x = {length}, 可以容纳基本数据类型和引用数据类型，而ArrayList只能容纳引用数据类型；
+Array是固定大小的，ArrayList的容量是可变的；
+Array提供的方法没有ArrayList那么多；
+</code></pre></div><ol start="29">
+<li>在 Queue 中 poll()和 remove()有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">两者都会移除并返回栈顶队列头元素，不同之处在于如果队列为空poll方法会返回null，而remove会抛出异常 NoSuchElementException
+</code></pre></div><ol start="30">
+<li>哪些集合类是线程安全的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">HashTable、SynchronizedMap、Vector、Properties、Stack以及jdk1.5 concurrent包下的并发集合类
+</code></pre></div><ol start="31">
+<li>迭代器 Iterator 是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">IterRator接口提供遍历任何Collection的接口。可以从一个Collection中使用迭代器方法来获取迭代器实例。迭代器取代了java集合框架中的Enumeration。迭代器允许调用者在迭代过程中移除元素。
+</code></pre></div><ol start="32">
+<li>Iterator 怎么使用？有什么特点？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">next()获取集合中的下一个元素
+hasNext()检查是否还有未遍历的元素
+remove()移除一个元素
+forEachRemaining(Consumer&lt;? super E&gt; action)遍历元素
+</code></pre></div><ol start="33">
+<li>Iterator 和 ListIterator 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">我们可以使用Iterator来遍历Set和List集合，而ListIterator只能遍历List；
+Iterator只可以向前遍历，而ListIterator可以双向遍历；
+ListIterator从Iterator接口继承，添加了一些额外功能，比如添加一个元素、替换一个元素、获取前面或者后面元素的索引位置；
+</code></pre></div><ol start="34">
+<li>怎么确保一个集合不能被修改？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">使用Collections的unmodifiable方法对集合进行修饰
+</code></pre></div><h6 id="三多线程">三、多线程</h6>
+<ol start="35">
+<li>
+<h6 id="并行和并发有什么区别">并行和并发有什么区别？</h6>
+</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">并行：充分利用计算机的多核，在多个线程上同步进行。
+并发：在一条线程上通过快速切换，让人感觉多个任务在同时运行。
+</code></pre></div><ol start="36">
+<li>线程和进程的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">进程是资源分配的最小颗粒，拥有独立的内存单元；
+线程是CPU调度的最小颗粒，同一个进程内的线程，共享内存单元；
+一个进程至少包含一个线程；
+</code></pre></div><ol start="37">
+<li>守护线程是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">守护线程对于普通线程来说，拥有自动结束自己生命周期的特性，而非守护进程不具有这一点。
+守护线程通常被用来执行一些后台任务，但又希望在程序退出时线程能够自动关闭。此时，守护线程就是最佳选择。
+</code></pre></div><ol start="38">
+<li>创建线程有哪几种方式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">继承Tread类；
+实现Runnable接口
+使用Executor框架创建线程池
+实现Callable接口，通过FutureTask包装器来创建Tread线程
+</code></pre></div><ol start="39">
+<li>说一下 runnable 和 callable 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Runnable接口的run方法没有返回值；Callable接口call方法有返回值，支持泛型。
+Runnable接口的run方法只能抛出运行时异常，并且无法捕获处理；Callable接口call方法允许抛出异常，可以获取异常信息。
+</code></pre></div><ol start="40">
+<li>线程有哪些状态？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">新建(NEW)、可运行(RUNNABLE)、运行(RUNNING)、阻塞(BLOCKED)、死亡(DEAD)
+</code></pre></div><ol start="41">
+<li>sleep() 和 wait() 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">sleep()和wait()方法都是线程暂停执行的方法。
+sleep来自于线程类Tread的静态方法，wait属于Object的成员方法；
+sleep不涉及线程通信，调用时会暂停此线程指定的时间，但监控依然保持，不会释放对象锁，到时间自动回复；wait方法用于线程间通信，调用时会放弃对象锁，进入等待队列，调用notify或notifyAll方法唤醒后才能进入对象锁定池准备获得对象锁进入运行状态；
+wait方法只能用在同步控制方法或者同步控制块中，sleep可以在任何地方使用；
+sleep方法必须捕获InterruptedException，而wait不需要捕获异常
+</code></pre></div><ol start="42">
+<li>notify()和 notifyAll()有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">先驱概念：锁池和等待池
+锁池：假设线程A已经拥有了某个对象的锁，而其他线程想要调用这个对象的synchronized方法或synchronized代码块时，由于这些线程在进入对象的synchronized方法或synchronized代码块之前，必须先取得该对象的锁的拥有权，而该对象的锁目前正在被线程A拥有，所以这些线程就进入了该对象的锁池中。
+等待池：假设一个线程A在synchronized方法或synchronized代码块调用了synchronized所用对象的wait()方法，线程A就会释放该对象的锁，并进入该对象的等待池中。
+
+当线程调用了对象的wait()方法后，该线程出瑜对象的等待池中，等待池中的线程不回去竞争该对象的锁。
+当有线程调用了对象的notifyAll()方法（唤醒所有wait线程）或notify()方法(随机唤醒一个wait线程)，被唤醒的线程进入对象的锁池中，锁池中的线程会竞争该对象的锁。也就是说，调用了notify()后只有一个线程会由等待池进入锁池，而notifyAll()会将该对象等待池内的所有线程移动到锁池中，等待锁竞争。
+</code></pre></div><p><img src="E:%5C%E5%AD%A6%E4%B9%A0%5C%E9%A2%98%E7%9B%AE%5C%E7%BA%BF%E7%A8%8B%E8%8E%B7%E5%BE%97%E9%94%81%E8%BF%87%E7%A8%8B%E5%9B%BE%E7%A4%BA.png" alt="线程获得锁示例"></p>
+<ol start="43">
+<li>线程的 run()和 start()有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">run()方法是来自于Runnable接口
+start()方法是来自于Thread类，且start方法可以使线程并行运行，而run方法不行
+</code></pre></div><ol start="44">
+<li>创建线程池有哪几种方式？</li>
+</ol>
+<ul>
+<li><em><strong>Executors</strong></em>
+<ul>
+<li>Executors.newCachedThreadPool 创建一个可缓存的线程池，如果线程池的大小超过了需求，可以灵活回收空闲线程，如果没有可回收线程，则新建线程。</li>
+<li>Executors.newFixedThreadPool 创建一个定长的线程池，可以控制现成的最大并发数，超出的线程会在队列中等待</li>
+<li>Executors.newScheduledThreadPool 创建一个定长的线程池，支持定时、周期性的任务执行</li>
+<li>Executors.newSingleThreadExecutor 创建一个单线程化的线程池，使用一个唯一的工作线程执行任务，保证所有任务按照指定顺序执行</li>
+<li>Executors.newSingleThreadScheduledExecutor 创建一个单线程画的线程池，支持定时、周期性的任务执行</li>
+<li>Executors.newWorkStealingPool：创建一个具有并行级别的work-stealing线程池（Java8中的新特性，能够为线程池设置并行级别，具有更高的并发度和性能。除此方法外，其他创建线程的方法本质上调用的是ThreadPoolExecutor类的构造方法）</li>
+</ul>
+</li>
+<li><em><strong>ThreadPoolExecutor</strong></em>
+<ul>
+<li>corePoolSize 核心线程数
+<ul>
+<li>如果现有线程的数量小于corePoolSize，直接创建新线程；如果现有线程的数量大于等于corePoolSize ，小于maximumPoolSize ，此时只有当workQueue满时，才会创建线程处理任务。</li>
+</ul>
+</li>
+<li>maximumPoolSize 最大线程数</li>
+<li>workQueue 阻塞队列，存储等待执行的任务
+<ul>
+<li>当corePoolSize满，且未达到maximumPoolSize时，有新的任务提交，请求将会放入到workQueue中，等待空闲的线程，从WorkQueue中取出任务进行处理</li>
+<li>如果corePoolSize满且达到maximumPoolSize时，有新任务提交，会通过拒绝策略参数rejectHandler来指定处理策略</li>
+<li>直接切换队列 SynchronousQueue</li>
+<li>无限队列 LinkedBlockingQueue，最大线程数就是corePoolSize，maximumPoolSize不起作用。</li>
+<li>有界队列 ArrayBlockingQueue</li>
+</ul>
+</li>
+<li>keepAliveTime 线程没有任务执行时最多保持多久时间终止
+<ul>
+<li>当线程池中线程数量大于corePoolSize时，如果此时没有新的任务提交，核心线程外的线程不会立即销毁，进入等待状态，直到等待的时间超过了keepAliveTime才会终止</li>
+</ul>
+</li>
+<li>unit 设置keepAliveTime的时间单位</li>
+<li>threadFactory 线程工厂，用来创建线程，默认会提供一个默认的工厂来创建线程，当使用默认的工厂来创建时，会时新创建的线程具有相同的优先级，并且是非守护线程，同时也设置了线程的名称。</li>
+<li>rejectHandler 据绝处理任务时的策略
+<ul>
+<li>直接抛出异常，这也是默认的策略。实现类为AbortPolicy</li>
+<li>用调用者所在的线程来执行任务。实现类为CallerRunsPolicy</li>
+<li>丢弃队列中最靠前的任务并执行当前任务。实现类为DiscardOldestPolicy</li>
+<li>直接丢弃当前任务。实现类为DiscardPolicy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em><strong>ForkJoinPool</strong></em> java8中，Executors 工具类中新增了newWorkStealingPool方法创建线程池，使用的就是ForkJoinPool
+<ul>
+<li>parallelism 并发级别</li>
+<li>factory 创建线程的工厂类对象</li>
+<li>handler 当线程池中的线程抛出未捕获的异常时，统一使用UncaughtExceptionHandler对象处理</li>
+<li>mode 取值FIFO_QUEUE或者LIFO_QUEUE</li>
+<li>workerNamePrefix 线程名前缀</li>
+</ul>
+</li>
+<li><em><strong>ScheduledThreadPoolExecutor</strong></em> ScheduledThreadPoolExecutor类继承自ThreadPoolExecutor类，本质上还是调用ThreadPoolExecutor类的构造方法，只不过此时传递的队列为DelayedWorkQueue</li>
+</ul>
+<ol start="45">
+<li>线程池都有哪些状态？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">RUNNING 运行状态，接收新任务并处理排队的任务
+SHUTDOWN 关闭状态，不接受新任务但处理排队的任务
+STOP 停止状态，不接受新任务，不处理排队的任务，中断当前正在处理的任务
+TIDYING 整理状态，所有任务都已终止，workerCount为0，转换为TIDYING状态的线程将运行Terminate()挂钩方法
+TERMINATED 终止状态，terminated()方法完成
+</code></pre></div><ol start="46">
+<li>线程池中 submit()和 execute()方法有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">二者参数不同
+execute无返回值，submit有返回值
+submit实际也是调用了execute方法，只是创建了一个RunnableFuture对任务进行包装从而取得返回值
+</code></pre></div><ol start="47">
+<li>在 java 程序中怎么保证多线程的运行安全？</li>
+</ol>
+<p>线程安全的问题所在：</p>
+<ul>
+<li>原子性：一个或多个操作在CPU执行的过程中不被中断的特性
+<ul>
+<li>线程切换带来原子性问题
+<ul>
+<li>解决办法：Atomic开头的原子类（利用的是volatile关键字）、synchronized、Lock</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>可见性：一个线程对共享变量做出的修改，另一个线程可以立即看到
+<ul>
+<li>缓存、多核心带来可见性问题
+<ul>
+<li>volatile、synchronized、Lock解决可见性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>有序性：线程执行的顺序按照代码的先后顺序执行
+<ul>
+<li>编译优化带来的有序性问题
+<ul>
+<li>Hapends-Before规则解决有序性问题</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Happends-Before：共有8条规则，只要程序不违背以下规则即线程安全
+程序顺序规则：一个线程中的每一个操作，happens-before于该线程中的任意后续操作。
+监视器规则：对一个锁的解锁，happens-before于随后对这个锁的加锁。
+volatile规则：对一个volatile变量的写，happens-before于任意后续对一个volatile变量的读。
+传递性：若果A happens-before B，B happens-before C，那么A happens-before C。
+线程启动规则：Thread对象的start()方法，happens-before于这个线程的任意后续操作。
+线程终止规则：线程中的任意操作，happens-before于该线程的终止监测。我们可以通过Thread.join()方法结束、Thread.isAlive()的返回值等手段检测到线程已经终止执行。
+线程中断操作：对线程interrupt()方法的调用，happens-before于被中断线程的代码检测到中断事件的发生，可以通过Thread.interrupted()方法检测到线程是否有中断发生。
+对象终结规则：一个对象的初始化完成，happens-before于这个对象的finalize()方法的开始
+</code></pre></div><ol start="48">
+<li>多线程锁的升级原理是什么？</li>
+</ol>
+<p><!-- raw HTML omitted --><img src="https://img2018.cnblogs.com/common/1472588/201911/1472588-20191119163952312-39595927.png" alt="img"></p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">JVM优化synchronized的运行机制，当JVM检测到不同的竞争状态时就会根据需要自动切换到适合的锁，这种切换就是锁的升级，升级时不可逆的，也就是只能从低到高
+偏向锁--&gt;轻量级--&gt;重量级
+CAS compareAndSwap实现逻辑上的一种“加锁”，避免了真正去加锁
+偏向锁：当一个线程访问同步块并获取锁时，会在对象头和栈帧的锁记录里存储偏向的线程ID，以后该线程在进入和退出同步块时不需要进行CAS操作来加锁和解锁，只需测试Mark Word里线程ID是否为当前线程。
+轻量级锁：线程在执行同步块之前，JVM会先在当前线程的栈桢中创建用于存储锁记录的空间，并将对象头的Mark word复制到锁记录中。线程尝试使用CAS将对象头中的Mark word替换为指向锁记录的指针。如果成功，当前线程获得。如果失败，表示其他线程在竞争锁，当前线程使用自旋来获取锁，当自旋到达一定次数时，锁就会升级未重量锁。
+重量级锁：当获取锁失败，线程会阻塞。
+</code></pre></div><p><em><strong>synchronized优化-锁消除</strong>：消除锁是虚拟机另外一种锁的优化，这种优化更彻底，Java虚拟机在</em><strong>JIT编译</strong>*时(可以简单理解为当某段代码即将第一次被执行时进行编译，又称即时编译)，通过对运行上下文的扫描，去除不可能存在共享资源竞争的锁</p>
+<ol start="49">
+<li>什么是死锁？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">两个或多个线程相互等待对方释放资源从而无法继续运行下去而阻塞。
+</code></pre></div><ol start="50">
+<li>怎么防止死锁？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">死锁的四个必要条件：
+	互斥条件：线程要求对所分配支援进行排他性控制，即一个资源在一段时间内只能被一个线程所占有。其他请求该资源的线程只能等待
+	不可剥夺条件：线程所获得的资源在未使用完毕之前，不能被其他线程所强行夺走，即只能由获得该资源的线程自己主动释放
+	请求和保持条件：线程已经保持了至少一个资源，但又提出了新的资源请求，而该资源已经呗其他线程占有，此时请求线程倍阻塞，但对自己已经获得的资源保持不释放
+	循环等待条件：存在一种线程资源的循环等待链，链中每一个线程已获得的资源同时被链中下一个线程所请求，
+避免死锁的方式：
+	加锁顺序：按照线程需要的资源顺序，进行加锁。只有获得从顺序上排在前面的锁之后才能获取后面的锁。要求预先知道线程需要的锁，并对锁进行排序。
+	加锁时限：线程尝试获取锁的时候，加上一定的时限，超过时限则放弃对该锁的请求，回退并释放自己占有的锁，等待随机时间后再重试。
+	死锁检测：针对不可能实现按序加锁且锁超时也不可行的场景。每当一个线程请求锁、获得了锁，记录下相关信息。当一个线程请求锁失败时，线程可以遍历锁的关系图判断是否有死锁发生。当死锁发生时可以通过释放锁，回退，并等待一段随机时间后重试。有些更好的处理方法时按照优先级进行回退。
+</code></pre></div><ol start="51">
+<li>ThreadLocal 是什么？有哪些使用场景？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ThreadLocal在每个线程中存储一个变量的副本，这样在每个线程使用该变量的时候，使用的时该线程的局部变量，从而保证了线程的安全性以及高效性。
+使用场景：每个线程都需要存取一个同名变量，但每个线程中该变量的值均不相同
+实现原理：Thread类中维护了一个ThreadLocalMap变量，当发生存取时，将会以线程为Key存取当前线程中的副本，如果该变量在当前线程中没有值，则先初始化。
+有可能出现内存泄露
+</code></pre></div><ol start="52">
+<li>说一下 synchronized 底层实现原理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">每个对象都有一个监视器锁(monitor)，当monitor被占用时就会处于锁定状态。
+线程执行monitorenter指令时尝试获取monitor的所有权，过程如下：
+	1、如果monitor的进去数位0，则该线程进入monitor，并将进入数设置为1，该线程获得monitor的所有权
+	2、如果线程已经占有了该monitor，只是重新进入时，则进入monitor的进入数+1；
+	3、如果其他线程已经占用了monitor，则该线程进入了阻塞状态，直到monitor的进入数为0，再重新尝试获取monitor的所有权
+monitorexit
+	执行monitorexit的线程必须是对象的monitor的所有者
+	执行指令时，monitor的进入数-1，如果-1后的进入数为0，则线程退出monitor，不再有该对象monitor的所有权。其他被这个monitor阻塞的线程可以尝试获取这个monitor的所有权
+
+synchronnized对象在字节码中显示的调用了monitorenter和monitorexit。而synchronized方法是在方法标识上添加了ACC_SYNCHRONIED标识符，方法被调用时会检查ACC_SYNCHRONIED标识符是否被设置，如果设置了执行线程会线获取monitor。方法同步只是一种隐式的实现，无需通过字节码来完成。
+</code></pre></div><ol start="53">
+<li>synchronized 和 volatile 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">synchronized 是加锁，保证同一时间只有一个线程访问代码块、方法，可以作用于变量、方法、代码块、类等，会导致阻塞，可以保证可见性、原子性、有序性。
+volatile 是将变量的修改对其他线程立即可见，即将线程对数据的修改，同步至主存中，并另其他线程中的缓存失效，去主存中读取最新的数据。volatitle只能作用于变量，不会造成阻塞，只能保证可见性，有序性。
+</code></pre></div><ol start="54">
+<li>synchronized 和 Lock 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、synchronized是jvm提供的关键字，Lock是java concurrent包下的接口
+2、sychronized使用简单，线程退出同步块后会自动退出锁。Lock需要手动unLock()否则会造成线程死锁
+3、Lock的tryLock()方法有返回值，而synchronized方法没有
+4、Lock可中断，可公平可重入，而synchronized只可重入
+5、synchronized会阻塞没有获得锁的线程，而Lock可以通过lockInterruptibly()使没有获得锁的线程响应中断
+</code></pre></div><ol start="55">
+<li>synchronized 和 ReentrantLock 区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">ReentrantLock 是Lock的唯一实现
+synchronized 是非公平锁
+ReentrantLock 默认非公平锁，构造方法传值true可为公平锁
+ReentrantLock可以用condition实现分组唤醒需要唤醒的线程，可以精确唤醒。synchronized要么随即唤醒一个线程，要么唤醒全部线程。
+</code></pre></div><p>56.说一下 atomic 的原理？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback"> 通过unsafe类利用CAS实现硬件层面的阻塞加上volatitle关键字的特性实现了基于原子操作的线程安全
+</code></pre></div><h6 id="四反射">四、反射</h6>
+<ol start="57">
+<li>什么是反射？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">JAVA反射机制是在运行状态中，对任意一个类，都能知道这个类的所有属性和方法，对任意一个对象，都能能够调用它的任意一个方法和属性，这种动态获取的信息以及动态调用对象的方法的功能成为JAVA语言的反射机制。
+</code></pre></div><ol start="58">
+<li>什么是 java 序列化？什么情况下需要序列化？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">序列化：将 Java 对象转换成字节流的过程
+反序列化：将字节流转化为Java对象的过程
+当 Java 对象需要在网络上传输 或者 持久化存储到文件中时，就需要对 Java 对象进行序列化处理。
+序列化的实现：类实现 Serializable 接口，这个接口没有需要实现的方法。实现 Serializable 接口是为了告诉 jvm 这个类的对象可以被序列化。
+</code></pre></div><p>59.动态代理是什么？有哪些应用？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">静态代理：编译时生成一个新的代理类，增强了业务类。
+动态代理：在运行时，创建目标类，可以调用和扩展目标类的方法
+应用场景：统计每个API的请求耗时
+		统一的日志输出
+		校验被调用的api似乎否已经登陆和权限鉴定
+		Spring的AOP功能模块就是采用动态代理的机制来实现面向切面编程
+</code></pre></div><ol start="60">
+<li>怎么实现动态代理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">JDK动态代理：
+	实现InvocationHandler接口
+	使用Proxy.newProxyInstance(ClassLoader loader,Class&lt;?&gt; interfaces,InvocationHandler handler)方法获取代理对象
+	代理类通过构造方法传入目标类对象，代理类持有目标对象
+	目标类必须实现某个接口
+CGLib动态代理，自jdk1.8后jdk动态代理性能超过CGLib动态代理
+SpringAOP模块动态代理：
+	可以通过jdk动态代理实现
+	也可通过cglib动态代理实现
+</code></pre></div><h6 id="五对象拷贝">五、对象拷贝</h6>
+<ol start="61">
+<li>为什么要使用克隆？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">为了实现对象属性到属性的快速复制，减少开销，jdk提供了Cloneable接口和Object的clone方法
+</code></pre></div><ol start="62">
+<li>如何实现对象克隆？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、
+	实现Cloneable接口
+	调用object.clone()方法
+2、
+	通过序列化反序列化实现
+</code></pre></div><ol start="63">
+<li>深拷贝和浅拷贝区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">浅拷贝无法拷贝引用属性，即就对象与拷贝生成的新对象的引用属性是相同的，是同一对象。
+</code></pre></div><h6 id="六java-web">六、Java Web</h6>
+<ol start="64">
+<li>jsp 和 servlet 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Servlet 是一种服务器端的Java应用程序，具有独立于平台和协议的特性，可以生成动态的Web页面。它担当客户请求与服务器相应的中间层，是位于Web服务器的服务端的Java应用程序，与传统的从命令行启动的Java应用程序不通，Servlet由Web服务器进行加载，该Web服务器必须包含支持Servlet的Java虚拟机。
+Jsp Java Server Pages，是一个简化的Servlet设计。Jsp技术使用Java编程语言编写类XML的tags和scriptlets，来封装产生动态网页的处理逻辑。它是一种动态页面技术，主要谜底是将表示逻辑从Servlet中分离出来。
+
+相同点：Jsp编译后就变成了Servlet，Jsp本质就是Servlet，Jvm只能识别java的类，不能识别jsp代码，web容器将jsp的代码编译成jvm能够识别的java类。
+
+不同点：Jsp侧重视图，Servlet主要用于控制逻辑
+Servlet中没有内置对象，Jsp中的内置对象必须通过HttpServletRequest对象、HttpServletResponse对象以及HttpServlet对象得到
+</code></pre></div><ol start="65">
+<li>jsp 有哪些内置对象？作用分别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Page		指Jsp别翻译成Servlet的对象的引用。
+pageContext	可以用来获得其他8个内置对象，还可以作为JSP的域范围对象使用。pageContext中存的值是当前的页面的作用范围。
+request		代表的是请求对象，可以用于获得客户机的信息，也可以作为域对象来使用，使用request保存的数据在一次请求范围内有效。	
+response	响应对象，代表的是从服务器向浏览器响应数据。
+session		代表的是一次回话，可以用于保存用户的私有信息，可以作为域对象使用，使用session保存的数据在一次对话范围内有效。
+application	代表整个应用范围，使用这个对象保存的数据在整个web应用中都有效。
+out			JSPWriter是用于向页面输出内容的对象。
+config		指的是ServletConfig用于JSP翻译成Servlet后，获得Servlet的配置的对象。
+exception	在页面设置中isErrorPage=&#34;true&#34;，即可使用，是Throwable的引用，用来获得页面的错误信息。
+</code></pre></div><ol start="66">
+<li>说一下 jsp 的 4 种作用域？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">application		在所有应用程序中有效
+session			在当前会话中有效
+request			在当前请求中有效
+page			在当前页面有效
+</code></pre></div><ol start="67">
+<li>session 和 cookie 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">session是存储至服务端的
+cookie是存储至客户端的
+</code></pre></div><ol start="68">
+<li>说一下 session 的工作原理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">session本身是一个map集合，并且存入服务器的session集合中以sessionId为key。第一次取session时，服务器会创建一个session对象，并将相应的sessionId通过httpHeader发给客户端。客户端请求的时候只要带上了这个sessionId无论访问的是哪个servlet都可以拿到同一个session。
+session过期的条件：超时过期；程序调用httpSession.invalidate()；程序关闭；
+但若客户端关闭，sessionId因是以cookie的形式保存在客户端的缓存中，如果关闭浏览器，缓存消失，sessionId自然就消失。重新打开浏览器请求，没有之前的sessionId，服务器就会创建一个新的session。
+</code></pre></div><ol start="69">
+<li>如果客户端禁止 cookie 能实现 session 还能用吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">不能使用，sessionId是以cookie的形式保存在客户端，禁用了cookie也就没法用sessionId，服务器也就无法通过sessionId取到对应的session。
+</code></pre></div><ol start="70">
+<li>spring mvc 和 struts 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">拦截机制不通：Structs2是类级别的拦截，每次请求就会创建一个Action；Spring mvc的拦截机制是方法级别，一个方法对应一个request上下文，方法基本上是独立的，独享request、response数据。而每个方法又同一个url对应，参数的传递时直接注入到方法中，是所有方法所独有的，处理结果是通过ModeMap返回给框架。在Spring正合适，SpringMnv的ControllerBean默认单例模式，所以线程安全。
+底层框架不同：Structs2采用Filtershixian；SpringMvc采用Servlet实现。Filter在容器启动后即初始化，服务停止后销毁，晚于Servlet；Servlet在调用时初始化，先于Filter调用，服务停止后销毁。
+性能：Springmvc因为是基于方法的拦截，且是仅加载一次的单例模式bean注入，structs2是类级别的拦截，每次请求实例对应一个新的action，需要加载所有的属性值注入。所以SpringMvc的开发效率和性能都高于Structs2
+配置：Springmvc和spring无缝。优于Structs2
+</code></pre></div><ol start="71">
+<li>如何避免 sql 注入？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、前端表单进行参数格式控制
+2、后台进行参数格式化，过滤所有涉及sql的非法字符
+3、持久层使用参数化的持久化sql，使用预编译语句集，切记使用拼接字符串
+</code></pre></div><ol start="72">
+<li>什么是 XSS 攻击，如何避免？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">跨站脚本攻击，是web程序中的常见漏洞。攻击者往web页面里插入恶意的HTML代码，当用户浏览该页面时，嵌入其中的html代码会被执行，从而达到恶意攻击用户的目的，
+避免：对用户输入的数据进行转移、过滤处理
+	后台输出页面的时候也需要对输出的内容进行转移、过滤处理
+	前段对html标签属性、css属性赋值的地方进行校验
+</code></pre></div><ol start="73">
+<li>什么是 CSRF 攻击，如何避免？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">跨站请求伪造，是一种挟持用户在当前已登录 的web应用程序上执行非本意的操作的攻击方式。与xss相比，xss利用的是用户对指定网站的信任，csrf利用的是网站对用户网页浏览器的信任。
+防御措施：检查Referer字段
+		添加校验随机token
+</code></pre></div><h6 id="七异常">七、异常</h6>
+<ol start="74">
+<li>throw 和 throws 的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">throw是用来在代码中抛出异常的
+throws是用在方发声明中，表示方法会抛出何种异常
+</code></pre></div><ol start="75">
+<li>final、finally、finalize 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">final java关键字，表示所修饰的变量不可修改的、类不可扩展、方法不可重写
+finally 是java用来保证某一段代码一定被执行的修饰符
+finalize 是基础类 java.lang.Object的一个方法，它的设计目的是保证对象在被垃圾回收之前完成特定资源的回收
+</code></pre></div><ol start="76">
+<li>try-catch-finally 中哪个部分可以省略？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">catch和finally可以被省略一个
+</code></pre></div><ol start="77">
+<li>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">会执行
+</code></pre></div><ol start="78">
+<li>常见的异常类有哪些？
+<ol>
+<li>NullPointException 当应用程序试图访问空对象时抛出</li>
+<li>SQLException 关于数据库访问错误或其他错误信息的异常</li>
+<li>IndexOutOfBoundException 指示某排序索引超出索引范围时抛出</li>
+<li>NumberFormartException 当应用程序试图将字符串转换成一种数值类型，但该字符串不能转换为适当格式时，抛出该异常</li>
+<li>FileNotFoundException 试图打开指定路径名表示的文件失败时抛出</li>
+<li>IOException 当发生某种IO异常时抛出，此类事失败或中断的IO操作生成的异常的通用类</li>
+<li>ClassCastException 当试图讲对象强制转换为不是实例的子类时抛出</li>
+<li>IllegalArgumentException 抛出的异常表明向方法传递了一个不合法或不正确的参数</li>
+<li>ArrayStoreException 试图将错误类型的对象存储到一个对象数组时抛出</li>
+<li>ArithmeticException 出现异常的运算条件时抛出</li>
+<li>NoSuchMethtodException 无法找到一个特定的方法时抛出</li>
+<li>NegativeArraySizeException 无法找到某一特定方法时抛出该异常</li>
+<li>SecurityException 由安全管理器抛出的异常，表明存在安全问题</li>
+<li>UnsupportedOperationException 当不支持请求的操作时抛出</li>
+<li>RuntimeException 虚拟机正常运行期间抛出的异常的超类</li>
+</ol>
+</li>
+</ol>
+<h6 id="八网络">八、网络</h6>
+<ol start="79">
+<li>http 响应码 301 和 302 代表的是什么？有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">301 永久重定向，搜索引擎在抓取新内容的同时也将旧的网址交换为重定向之后的网址
+302 暂时重定向，搜索引擎会抓取新的内容而保存旧的网址
+</code></pre></div><ol start="80">
+<li>forward 和 redirect 的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">forward 是服务器内部的重定向，服务器直接访问目标地址的url网址，把里面的数据读取出来，但是客户端并不知道，因此客户端浏览器的网址不会发生变化。
+redirect 是服务器根据逻辑发送一个状态码告诉浏览器重新去请求那个地址，所以地址栏显示的是新的地址。
+</code></pre></div><ol start="81">
+<li>简述 tcp 和 udp的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">TCP面向连接，UDP是无连接的
+TCP面向字节流，UDP基于数据报的
+TCP保证数据正确，UDP可能丢包
+TCP保证数据顺序，UDP不保证
+</code></pre></div><ol start="82">
+<li>tcp 为什么要三次握手，两次不行吗？为什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">为了实现可靠数据传输，TCP协议的通信双方必须维护一个序列号，以表示发送出去的数据包中，哪些是对方已经收到的。三次握手的过程即是通信双方相互告知序列号起始值，并确认对方已经收到了序列号起始值的必经步骤
+如果只是两次握手，至多只能有连接发起方的起始序列号能被确认，另一方选择的序列号则不能得到确认。
+</code></pre></div><ol start="83">
+<li>说一下 tcp 粘包是怎么产生的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">TCP协议是面向数据流的，数据以流的方式传输，也就是说TCP协议传输的数据是无边界的。
+粘包发生在发送或者接受缓冲区中，应用程序从缓冲区中取数据是整个缓冲区有多少取多少，那么就有可能第一个数据的尾部和第二个数据的头部同时存在缓冲区中，而TCP是流式的，数据无边界，这就叫做粘包。
+</code></pre></div><ol start="84">
+<li>OSI 的七层模型都有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">应用层
+表示层
+会话层
+传输层
+网络层
+数据链路层
+物理层
+</code></pre></div><ol start="85">
+<li>get 和 post 请求有哪些区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Post请求可以有请求体；Get请求没有请求体
+后退刷新按钮对Get请求应该是无害的，即对资源的多次Get请求是没有影响的，即幂等；Post请求刷新会导致数据被重新提交，不幂等
+Post的安全性强，参数不会保存在浏览器历史或者Web服务器日志中；Get请求的安全性差，所发送数据是URL的一部分
+Post请求对数据的长度无限制；Get请求因为参数通过URL传递，因此数据长度受限，URL最长只有2048个字符
+Post不可缓存；Get可缓存
+</code></pre></div><ol start="86">
+<li>如何实现跨域？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、使用JSONP
+2、使用cors
+3、使用nginx
+4、HTML5的XMLHttpRequest postMessage()方法
+5、WebSocket
+</code></pre></div><ol start="87">
+<li>说一下 JSONP 实现原理？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">本质是一个Hack，利用&lt;script&gt;标签不受同源策略限制的特性进行跨域操作
+优点：实现简单、兼容性好
+缺点:只支持get请求（&lt;script&gt;标签只支持get） 有安全性问题，容易受到xss攻击、需要服务器配合jsonp进行一定程度的改造
+</code></pre></div><h6 id="九设计模式">九、设计模式</h6>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">七大设计原则：
+	1、开闭原则：对扩展开放，对修改关闭
+		通过抽象约束、封装变化来实现开闭原则
+	2、里氏替换原则：父类出现的地方，子类一定可以出现。
+    	子类可以扩展父类的功能，但不能改变父类原有的功能
+	3、依赖倒置原则：面向接口变成，不要面向实现变成
+    	依赖倒置原则是实现开闭原则的重要途径之一，奖励了客户与实现模块之间的耦合
+    4、单一职责原则：一个类应该有且仅有一个因其他变化的原因，否则类应该被拆分
+    5、接口隔离原则：客户端不应该被迫依赖于它不使用的方法
+    	要为各个类建立他们需要的专用接口，而不要试图建立一个很庞大的接口供所有依赖它的类去调用
+    6、迪米特法则：只与你的直接朋友交谈，不跟陌生人说话。
+    	如果两个软件实体无需直接通信，那么久不应该放生直接的互相调用，可以通过第三方转发概调用。其目的是降低类之间的耦合度，提高模块的相互独立性
+    7、合成复用原则：尽量用组合或者聚合关系来实现,少用继承
+    	如果使用继承关系，必须严格准守里氏替换原则
+</code></pre></div><table>
+<thead>
+<tr>
+<th>范围\目的</th>
+<th>创建模式</th>
+<th>结构型模式</th>
+<th>行为型模式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>类模式</td>
+<td>工厂方法：Factory Method 定义一个用于创建产品的接口，由子类决定生产什么样的产品</td>
+<td>适配器</td>
+<td>模板方法：Templete Method 定义一个操作中的算法骨架，而将算法的一些步骤延迟到子类中，使的子类可以不改变该算法结构的情况下重新定义该算法的某些特定步骤<!-- raw HTML omitted -->解释器：Interpreter 提供如何定义语言的文法，以及对语言句子的解释方式</td>
+</tr>
+<tr>
+<td>对象模式</td>
+<td>单例：Singleton 某个类只能生成一个实例，该类提供了一个全局访问点供外部获取该实例<!-- raw HTML omitted -->原形：Prototype将一个对象作为原型，通过对其进行复制而克隆出多个和原型类似的新实例<!-- raw HTML omitted -->抽象工厂：Abstract Factory 定义一个创建产品族的接口，其每个子类可以生产一系列相关的产品<!-- raw HTML omitted -->建造者：Builder 将一个复杂对象分解成多个相对简单的部分，然后根据不同需要分别创建他们，最后构成改复杂的对象。</td>
+<td>代理：Proxy 为某对象提供一种代理以控制对该对象的反问。即客户端通过代理间接地访问该对象，从而限制、增强或修改该对象的一些特性<!-- raw HTML omitted -->适配器：Adapter 将以各类的接口转换成客户希望的另一个接口，使得原本由于接口不兼容不能一起工作的那些类能够一起工作<!-- raw HTML omitted -->桥接：Bridge 将抽象与实现分离，使得它们可以独立变化。它是用组合关系代替继承关系来实现，从而降低了抽象和实现这两个可变维度的耦合度<!-- raw HTML omitted -->外观：Facade 为多个复杂的子系统提供一个一致的接口，是的这些子系统更加容易被访问<!-- raw HTML omitted -->装饰：Decorator 动态的给对象增加一些职责，即增加其额外的功能<!-- raw HTML omitted -->享元：Flyweight 运用共享技术来有效地支持大量细粒度对象的复用<!-- raw HTML omitted -->组合：Composite 将对象组合成树状层次结构，使用户对单个对象和组合对象具有一致的访问性。</td>
+<td>策略：Strategy 定义了一系列算法，并将其每个算法封装起来，使他们可以互相替换，且算法的改变不会影响使用该算法的客户<!-- raw HTML omitted -->命令：Command 将一个请求封装为一个对象，使发出请求的责任和执行请求的责任分隔开<!-- raw HTML omitted -->责任链： Chain of Responsibility 把请求从链中的一个对象传到下一个对象，直到请求被响应为止。通过这种方法除去对象之间的耦合<!-- raw HTML omitted -->状态：State 允许一个对象在其内部状态发生改变时改变其行为能力<!-- raw HTML omitted -->观察者：Observer 多个对象间存在一对多的关系，当一个对象发生改变时，把这种改变通知其他多个对象，从而影响其他对象的行为<!-- raw HTML omitted -->中介者：Mediator 定义一个中介对象来简化原对象之间的交互关系，降低系统中对象间的耦合度，使原有对象之间不必互相了解<!-- raw HTML omitted -->迭代器：Iterator 提供一种方法来顺序访问聚合对象中的一系列元素，而不暴露聚合对象内部表示<!-- raw HTML omitted -->访问者：Visitor 在不改变集合元素的前提下，为一个集合中的每个元素提供多种访问方式，即每个元素有多个访问者对象访问<!-- raw HTML omitted -->备忘录：Memento 在不破坏封装性的前提下，获取并保存一个对象的内部状态，以便以后恢复它</td>
+</tr>
+</tbody>
+</table>
+<ol start="88">
+<li>说一下你熟悉的设计模式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">简单工厂、单例、观察者、装饰、适配器
+</code></pre></div><ol start="89">
+<li>简单工厂和抽象工厂有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">简单工厂只能生产同一结构等级中的任意产品，不支持扩展增加产品；而抽象工厂可以生产不同产品族的产品
+</code></pre></div><h6 id="十springspring-mvc">十、Spring/Spring MVC</h6>
+<ol start="90">
+<li>为什么要使用 spring？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Spring是一个开源的轻量级JavaBean容器，代替了重量级的EJB，提供了丰富的企业级应用功能，奖励应用开发的复杂性
+轻量：非入侵性、所依赖的东西少、资源占用少、部署简单、不同功能选择不同的jar组合
+容器：工厂模式实现对JavaBean进行管理，通过控制反转（IOC）将应用程序的配置和依赖性与应用代码分开
+松耦合：通过XML配置或注解完成bean的依赖注入
+AOP：通过XML配置或注解即可加入面向切面编程的能力，完成切面功能
+方便集成：通过配置和简单的对象注入即可集成其他框架
+丰富的功能：JDBC层抽象、事务管理、MVC、JavaMail、任务调度、JMX、JMS、JNDI、远程访问、Web Service
+</code></pre></div><ol start="91">
+<li>解释一下什么是 aop？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">AOP面向切面编程，是OOP面向对象编程的补充。在开发过程中，有一些非业务代码功能会混杂在业务代码中，如日志、权限、安全、事务等。使用AOP可以将这些通用功能抽取出来独立实现，达到了将不同的关注点分离开的效果。
+</code></pre></div><ol start="92">
+<li>解释一下什么是 ioc？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">控制反转，把传统上由程序代码直接操作对象的调用权交给容器，通过容器来实现对象组件的组装和管理。所谓控制反转指的是对组件对象控制权的转移。
+</code></pre></div><ol start="93">
+<li>spring 有哪些主要模块？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">core 框架基础，提供ioc容器，对bean进行管理
+context 基于bean提供上下文信息，扩展出JNDI、EJB、电子邮件，国际化等功能
+dao 提供了jdbc的抽象层，消除了冗长的JDBC编码和解析数据库厂商特有的错误代码，提供了声明型事务管理方法
+orm 提供了常用的“对象/关系”映射APIs的集成层，其中包括JPA、JDO、Hibernate、Mybatis
+aop 提供了更符合AOP alliance规范的面向切面的编程实现
+web 提供了基础的web开发的上下文信息，可以与其他web集成
+web mvc 提供了web英勇的Model-view-controller全功能实现
+</code></pre></div><ol start="94">
+<li>spring 常用的注入方式有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">基于注解注入
+基于setter注入
+基于构造函数注入 无法解决循环依赖
+</code></pre></div><ol start="95">
+<li>spring 中的 bean 是线程安全的吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Spring并没有对Bean提供线程安全策略，但提供了Bean的作用域scope。如果是prototype类型作用域，每次使用时都创建了一个新对象，线程之间不共享bean也就不会有线程安全问题。
+</code></pre></div><ol start="96">
+<li>spring 支持几种 bean 的作用域？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">singleton 单例 默认作用域
+prototype 原形 每次创建一个新对象
+request 请求 每次http请求创建一个新对象，适用于WebApplicationContext环境下
+session 会话 每次会话创建一个新对象
+global-session全局会话 全局会话，所有会话共享一个实例
+</code></pre></div><ol start="97">
+<li>spring 自动装配 bean 有哪些方式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、byName 对应注解 @Autowired @Inject
+2、byType 对应注解 @Qualifier @Named @Resource
+3、constructor
+4、autodetect
+</code></pre></div><ol start="98">
+<li>spring 事务实现方式有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">编程式事务管理：在代码中调用 commit() rollback()等事务管理相关的方法
+声明式事务管理：
+	基于TransactionProxyFactoryBean
+	基于Transaction
+</code></pre></div><ol start="99">
+<li>说一下 spring 的事务隔离？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">事务特性：A（atomicity 原子性）C（consistency 一致性）I（isolation 隔离性）D（durability 持久性）
+
+隔离性引发安全问题
+脏读：一个事物读取到了另一个事务未提交的数据
+不可重复读：一个事务堵到了另一个事物已经提交的update数据导致多次查询结果不一样
+虚幻读：一个事务堵到了另一个事务已经提交的insert的数据导致多次查询结果不一致
+
+5种隔离级别
+DEFAULT 默认级别使用数据库模式的事务隔离级别
+未提交读：脏读、不可重复读、虚读都有可能发生
+已提交读：避免脏读，但是不可重复读和虚读有可能发生
+可重复读：避免脏读和不可重复度，但是虚读有可能发生
+串行化：避免以上所有读问题
+
+事务的传播级别
+	保证在同一个事务中
+		PROPAGATION_REQUIRED 支持当前事务，如果不存在就创建一个（默认）
+		PROPAGATION_SUPPORTS 支持当前事务，如果不存在，就不使用事务
+		PROPAGATION_MANDATORY 支持当前事务，如果不存在，抛出异常
+	保证没有在同一事务中
+	PROPAGATION_REQUIRES_NEW 如果有事务存在，挂起当前事务，创建一个新的事务
+	PROPAGATION_NOT_SUPPORTED 以非事务方式运行，如果有事务存在，挂起当前事务
+	PROPAGATION_NEVER 以非事务方式运行，如果有事务存在，抛出异常
+	PROPAGATION_NESTED 如果当前事务存在，则嵌套事务执行
+</code></pre></div><ol start="100">
+<li>说一下 spring mvc 运行流程？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、用户向服务器发送请求，请求被Spring前端控制器 DispatcherServlet捕获
+2、DispatcherServlet对请求URL进行解析，得到请求资源标识符（URI），然后根据该URI调用HandlerMapping获得该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain对象的形式返回（查找Handler）
+3、DispatcherServlet根据获得的Handler选择一个合适的HandlerAdapter。提取Request中的模型数据，填充Handler入参，开始执行Handler（Controller），Handler执行完成后，向DispatcherServlet返回一个ModelAndView对象（执行 handler）
+4、DispatcherServlet根据返回的ModelAndView，选择一个适合的ViewResolver（必须是已经注册到Spring容器中的ViewResolver）（选择ViewResolver）
+5、通过ViewResolver结合Model和View，来渲染视图，DispatcherServlet将渲染结果返回给客户端（渲染返回）
+</code></pre></div><ol start="101">
+<li>spring mvc 有哪些组件？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">前端控制器（DispatcherServlet）
+处理映射器（HandlerMapping）
+处理适配器（HandlerAdapter）
+拦截器（HandlerIntercepter）
+语言环境处理器（LocaleResolver）
+主题解析器（ThemeResolver）
+视图解析器（ViewResolver） 
+文件上传处理器（MultipartResolver）
+异常处理器（HandlerExceptionResolver） 
+数据转换（DataBinder）
+消息转换器（HttpMessageConverter）
+请求转视图翻译器（RequestToViewNameTranslator）
+页面跳转参数管理器（FlashMapManager）
+处理程序执行链（HandlerExecutionChain） 
+</code></pre></div><ol start="102">
+<li>@RequestMapping 的作用是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">用来处理请求地址映射的注解，可作用于类或者方法上。
+	用于类上，标识类中的所有响应请求的方法都是以该地址作为父路径
+value：指定请求的实际地址，指定的地址可以是URI template模式
+method：指定请求的method类型，GET、POST、PUT、DELETE等
+consumes：指定处理请求的提交内容类型（content-type),例如application/json,text/html
+produces:指定返回的内容类型，秦当request请求头中的（accept）类型中包含该类型才返回
+params：指定request中必须包含某些参数值才让该方法处理
+headers：指定request中必须包含某些指定header值，才能让该方法处理请求。
+</code></pre></div><ol start="103">
+<li>@Autowired 的作用是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">可以对类成员变量、方法、及构造函数进行标注，让spring完成bean自动装配的工作
+按类型匹配，默认指定的bean必须存在，可以配置required=false标识bean可以不存在
+</code></pre></div><h6 id="十一spring-bootspring-cloud">十一、Spring Boot/Spring Cloud</h6>
+<ol start="104">
+<li>什么是 spring boot？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Spring Boot 是用来简化Spring应用初始搭建以及开发过程。该框架用了特定的方式进配置，从而使开发人员不再需要定义样板化的配置。其实是一个整合很多可插拔的组件内嵌了实用工具，方便开发人员快速搭建和开发的一个框架
+</code></pre></div><p>105.为什么要用 spring boot？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">随着Spring的发展，spring逐渐整合了越来越多的功能，另一方面随着新技术的发展，spring显得越来越笨重，需要进行大量的xml及第三方整合配置。springboot就是spring官方提供的用来解决如上功能的解决方案。Springboot可以以非常少的配置轻松使用spring平台及第三方库
+</code></pre></div><ol start="106">
+<li>spring boot 核心配置文件是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">application和 bootstrap配置文件
+</code></pre></div><ol start="107">
+<li>spring boot 配置文件有哪几种类型？它们有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">application 主要用于 Spring Boot 项目的自动化配置。
+bootstrap 配置文件有以下几个应用场景。
+使用 Spring Cloud Config 配置中心时，需要在 bootstrap 配置文件中添加连接到配置中心的配置属性来加载外部配置中心的配置信息；
+一些固定的不能被覆盖的属性；
+一些加密/解密的场景；
+</code></pre></div><ol start="108">
+<li>spring boot 有哪些方式可以实现热部署？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、Spring Loaded
+2、spring-boot-devtools
+</code></pre></div><ol start="109">
+<li>jpa 和 hibernate 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">JPA是一种规范，hibernate也是遵从这种规范，hibernate 的效率更快
+</code></pre></div><ol start="110">
+<li>什么是 spring cloud？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Spring cloud 是一个微服务框架，相比Dubbo等RPC框架，Spring Cloud提供了全套的分布式系统解决方案
+SPring Cloud 对微服务基础框架Netflx的多个开源组件进行了封装，同时又实现了和云端平台以及Spring Boot开发框架的集成
+Spring Cloud为微服务架构开发设计的配置管理、服务治理、熔断机制、智能路由、微代理、控制总线、一次性token、全局一致性锁、leader选举、分布式session、集群状态等操作提供了一种简单的开发方式
+Spring Cloud为开发者提供了快速构建分布式系统的工具，开发者可以快速的启动服务或者构建应用、同时能够快速和云平台资源进行对接
+</code></pre></div><ol start="111">
+<li>spring cloud 断路器的作用是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">某个服务故障时，通过断路器的故障监控，向调用方发送一个错误相应，避免长时间等待。这样就不会使得线程因调用故障服务而被长时间占用不释放，避免了故障在分布式系统中的蔓延
+</code></pre></div><ol start="112">
+<li>spring cloud 的核心组件有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">服务发现：netflix eureka
+客户端负载均衡：netflix ribbon
+断路器：netflix hystrix
+服务网关：netflix zuul、spring cloud gateway
+分布式配置：spring cloud config
+</code></pre></div><h6 id="十二hibernate">十二、Hibernate</h6>
+<ol start="113">
+<li>为什么要使用 hibernate？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">屏蔽了数据库的底层实现
+不用写SQL
+</code></pre></div><ol start="114">
+<li>什么是 ORM 框架？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">通过类与数据库表的映射关系，讲对象持久化到数据库中
+</code></pre></div><ol start="115">
+<li>hibernate 中如何在控制台查看打印的 sql 语句？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">spring.jpa.properties.hibernate.show_sql=true          //控制台是否打印
+spring.jpa.properties.hibernate.format_sql=true        //格式化sql语句
+spring.jpa.properties.hibernate.use_sql_comments=true  //指出是什么操作生成了该语句
+</code></pre></div><ol start="116">
+<li>hibernate 有几种查询方式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、对象导航查询
+
+2、OID查询
+根据ID查询一条记录，返回对象
+3、HQL查询
+Query对象，写hql语句实现查询
+4、QBC查询
+Critical对象
+5、本地sql查询
+SQLquery，使用普通SQL实现查询
+</code></pre></div><ol start="117">
+<li>hibernate 实体类可以被定义为 final 吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">可以，但不推荐。因为Hibernate会使用代理模式在延迟关联的情况下提高性能，如果把实体类定义为final后，Hibernate无法使用代理，无法进行性能提升。
+</code></pre></div><ol start="118">
+<li>在 hibernate 中使用 Integer 和 int 做映射有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">当数据库存储的数据是null是，int字段会出现类型转换异常，Integer不会出现异常
+</code></pre></div><ol start="119">
+<li>hibernate 是如何工作的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、通过Configuration对象读取并解析配置文件
+2、读取并解析映射信息，创建SessionFactory对象
+3、打开Session
+4、创建事务Transaction
+5、持久化操作
+6、提交事务
+7、关闭session和sessionfactory
+</code></pre></div><ol start="120">
+<li>get()和 load()的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">load是懒加载，调用load方法时并不会立即发出sql语句，得到的对象也只是一个代理对象，当要是用这个对象获取其他属性时才会发出sql语句从数据库中查询目标对象，
+报错可控，不会出现null
+get，调用get方法时会立即发出sql语句，因此性能较差，但是可以查询对象的所有制。报错不可控，会报Null
+</code></pre></div><ol start="121">
+<li>说一下 hibernate 的缓存机制？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Hibernate缓存有一级缓存和二级缓存
+	一级缓存：又称session的缓存，session缓存内置不能被卸载，session的缓存是事务范围内的缓存（session对象的生命周期通常对应一个数据库事务或者一个应用事务）。一级缓存中，持久化类的每个实例都具有为一个OID。
+	二级缓存：sessionFactory的缓存，由于SessionFactory对象的生命周期和应用程序的整个过程对应，因此Hibernate二级缓存是进程范围或者集群范围的缓存，有可能出现并发问题，因此需要采用适当的并发访问策略，该策略为被缓存的数据提供了事务隔离级别。第二级缓存是可选的，是一个可配置的插件，默认下sessionfactory不会启用这个插件。hibernate提供了CacheProvide接口，它充当缓存插件与Hibernate之间的适配器。
+</code></pre></div><ol start="122">
+<li>hibernate 对象有哪些状态？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Transient 临时状态 刚new出来的对象，没有OID
+Persistent 持久化状态 有持久化标识OID，已经被纳入到session对象的管理
+Detached 游离状态 有持久化标识OID，但没有被纳入到session对象的管理
+</code></pre></div><ol start="123">
+<li>在 hibernate 中 getCurrentSession 和 openSession 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">openSession 每次调用打开的是一个新的session，使用完需要调用close方法关闭session
+getCurrentSession 如果当前存在session，则返回已经存在的session，如果没有session则创建一个session
+</code></pre></div><ol start="124">
+<li>hibernate 实体类必须要有无参构造函数吗？为什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">必须要，Hibernate返回的实体类是一个对象实例，是Hibernate通过反射生成的，反射的Class.forName(String className).newInstance()需要对应的类提供一个无参构造方法。
+</code></pre></div><h6 id="十三mybatis">十三、Mybatis</h6>
+<ol start="125">
+<li>mybatis 中 #{}和 ${}的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">#{}是预编译,${}是字符串替换
+处理#{}时，会将其替换为?，调用PreparedStatement的set方法来赋值
+处理${}时，就是把${}替换成变量的值
+使用#{}可以有效地防止SQL注入，提供系统安全性
+</code></pre></div><ol start="126">
+<li>mybatis 有几种分页方式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、数组分页
+	查询出数据后在代码中进行分页
+2、sql语句分页
+	sql后添加limit语句
+3、拦截器分页
+	通过拦截器，在sql执行之前添加sql语句实现分页
+4、RowBounds分页
+</code></pre></div><ol start="127">
+<li>RowBounds 是一次性查询全部结果吗？为什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">是的,Mybatis使用RowBounds的思路：先取出所有数据，然后游标移动到offset位置，循环取limit条数据，然后把剩下的数据舍弃
+</code></pre></div><ol start="128">
+<li>mybatis 逻辑分页和物理分页的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">物理分页，直接从数据库中拿出我们需要的数据，例如在sql中使用limit
+逻辑分页，从数据库中拿出所有符合要求的数据，然后再从这些数据中拿到我们需要的分页数据
+</code></pre></div><ol start="129">
+<li>mybatis 是否支持延迟加载？延迟加载的原理是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">支持延迟加载
+mybatis仅支持assocation关联对象和colletsion关联集合对象的延迟加载
+原理是，使用cglib创建目标对象的代理对象，当调用目标方法时，进入拦截器方法，比如调用a.getB.getName()，拦截器invoke()方法发现a.getB()是null值
+
+那么久会单独发送事先保存好的查询关联B对象的sql，把B查询上来，然后调用a.setB(b),于是a的对象属性b就有了，接着完成a
+.getB().getName()方法的帝爱用
+</code></pre></div><ol start="130">
+<li>说一下 mybatis 的一级缓存和二级缓存？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">一级缓存：也叫sqlSession级别的缓存，同一个sqlSession内执行两次多次相同结果的查询语句，只会在第一次执行时发出sql语句，之后每次都从一级缓存中查询数据返回
+	在两次查询中执行insert update delete语句会删除清除一级缓存，导致第二次查询仍旧访问数据库
+二级缓存：mapper级别的缓存，也就是多个sqlSession之间可以实现数据的共享,mybatis默认不开启二级缓存。
+	entity需要实现serializable接口，当session关闭时，将一级缓存的数据写入二级缓存。（一级缓存的清除条件仍旧成立）
+</code></pre></div><ol start="131">
+<li>mybatis 和 hibernate 的区别有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、Mybatis并不是一个完全的ORM框架，仍然需要写sql（mybatis-plus通过动态sql可以不写单表sql）
+2、mybatis直接编写原生态的sql导致其与数据库相关，无法做到数据库无关性。如果需要支持多种数据库，需要自定义多套sql映射文件，工作量大
+3、Hibernate对象/关系映射能力强大，数据库无关性好
+</code></pre></div><ol start="132">
+<li>mybatis 有哪些执行器（Executor）？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、SimpleExecutor：每执行一次update或select，就开启一个Statement对象，用完立刻关闭Statement对象
+2、ReuseExcutor：执行update或select，以sql为key查找Statement对象，存在就使用，不存在就创建，用完后不关闭Statement对象，而是存放在map中，以供下一次使用
+3、BatchExcutor：执行update将所有sql都添加到批处理中，等待统一执行，它缓存了多个Statement对象，每个Statement对象都是addBatch完成后，等待注意执行executeBatch
+</code></pre></div><ol start="133">
+<li>mybatis 分页插件的实现原理是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">使用Mybatis提供的插件接口，实现自定义插件，在插件的拦截方法内拦截待执行的sql，然后重写sql，藤菊dialect方法，添加对应的物理分页语句和物理分页参数。
+</code></pre></div><ol start="134">
+<li>mybatis 如何编写一个自定义插件？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">实现Interceptor接口
+</code></pre></div><h6 id="十四rabbitmq">十四、RabbitMQ</h6>
+<ol start="135">
+<li>rabbitmq 的使用场景有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、单发送单接收
+2、单发送多接收：消息需要持久化，接收端在处理完消息后才发送ack消息
+3、publish/subscribe：发布订阅模式，发布端发送广播消息，多个接收端接收
+</code></pre></div><ol start="136">
+<li>rabbitmq 有哪些重要的角色？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、生产者
+2、消费者
+3、代理
+</code></pre></div><ol start="137">
+<li>rabbitmq 有哪些重要的组件？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、ConnectionFactory：连接管理器，应用程序与RabbitMq之间建立连接的管理器
+2、Channel：管道，消息推送使用的通道
+3、Exchange：交换器，用于存储生产者的消息
+4、Queue：队列，用于存储生产者的消息
+5、RoutingKey：路由键，用于把生产者的数据分配到交换器上
+6、BindKey：绑定建，用于把交换器的消息绑定到队列上
+</code></pre></div><ol start="138">
+<li>rabbitmq 中 vhost 的作用是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">本质上是一个mini版的RabbitMQ服务器，拥有自己的队列、绑定、交换器和权限控制
+vhost通过在各个实例间提供逻辑上奋力，允许为不同应用程序安全保密地运行数据
+vhost是AMQP概念的基础，必须在连接时进行指定，RabbitMQ包含了默认vhost
+当在RabbitMQ中创建一个用户时，用户通常会被指派给至少一个vhost，并且只能访问被指派vhost内的队列、交换器和绑定，vhost之间是绝对隔离的
+
+vhost可以理解为虚拟broker，即mini-RabbitMQ server，其内部均含有独立的queue、bind、exchange等，最重要的是拥有独立的权限系统，可以做到vhost范围内的用户控制。当然从RabbitMQ全局角度，vhost可以作为不同权限隔离的手段
+</code></pre></div><ol start="139">
+<li>rabbitmq 的消息是怎么发送的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">生产者把消息通过channel发送到Exchange上，Exchange通过绑定的routerKey来选择Queue，消费者监听queue上有新的消息，就消费
+</code></pre></div><ol start="140">
+<li>rabbitmq 怎么保证消息的稳定性？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">提供了事务的功能，通过将channel设置为confirm
+</code></pre></div><ol start="141">
+<li>rabbitmq 怎么避免消息丢失？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、消息的持久化
+	1、交换机的持久化
+	2、队列的持久化
+2、Confirm消息确认机制
+	发布确认
+	接收确认
+3、ACK确认机制
+4、设置集群镜像模式
+5、消息补偿机制
+</code></pre></div><ol start="142">
+<li>要保证消息持久化成功的条件有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">公告队列必须设置持久化durable为true
+消息推送投递模式必须设置持久化，deliveryMode设置为2
+消息已经达到持久化交换器
+消息已经到达持久化队列
+</code></pre></div><ol start="143">
+<li>rabbitmq 持久化有什么缺点？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">持久化的缺点降低了服务器的吞吐量，因为消息要持久化到硬盘，和硬盘的IO速度低降低了吞吐量。
+</code></pre></div><p>144.rabbitmq 有几种广播类型？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">三种：
+	fanout 所有bind到此exchange的queue都可以接受消息
+	direct 通过routingKey和exchange决定到那个唯一的queue可以接受消息
+	topic 所有符合routingKey（此时可以是一个表达式）的routingKey所有bind的queue可以接收到消息
+</code></pre></div><ol start="145">
+<li>rabbitmq 怎么实现延迟消息队列？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、通过消息过期后进入死信交换器，再由交换器转发到推迟消费队列，实现延迟功能
+2、使用RabbitMQ-delayed-message-exchange插件实现推迟功能
+</code></pre></div><ol start="146">
+<li>rabbitmq 集群有什么用？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">高可用：某个服务器出现问题，整个RabbitMQ还可以使用
+高容量：集群可以承载更多的消息量
+</code></pre></div><ol start="147">
+<li>rabbitmq 节点的类型有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">磁盘节点：消息会存储到磁盘
+内存节点：消息都存储在内容中，重启服务器消息丢失，性能高于磁盘类型
+</code></pre></div><ol start="148">
+<li>rabbitmq 集群搭建需要注意哪些问题？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">各节点之间使用&#34;--link&#34;连接，此属性不能忽略
+各节点使用的erlang cookie值必须相同，此值相当于&#34;秘钥&#34;的功能，用于各节点的认证
+整个集群中必须包含一个磁盘节点
+</code></pre></div><ol start="149">
+<li>rabbitmq 每个节点是其他节点的完整拷贝吗？为什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">不是
+1、存储空间考虑：如果每个节点都拥有所有队列的完全拷贝，这样新加节点不但没有新添加存储空间，反而添加了更多冗余数据
+2、性能的考虑：如果每条消息都需要完整拷贝到每一个集群节点，那么新添加节点并没有提升解决消息的能力，最多是保持和单节点相同的性能甚至因多节点协同工作导致性能下降
+</code></pre></div><ol start="150">
+<li>rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、不能新建队列
+2、不能新建交换器
+3、不能新建绑定
+4、不能增加客户
+5、不能更改权限
+6、不能增加和删除集群节点
+唯一磁盘节点崩溃了，集群是可以保持运行的，但不能更改任何东西
+</code></pre></div><ol start="151">
+<li>rabbitmq 对集群节点停止顺序有要求吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">先关闭内存节点，再关闭磁盘节点。顺序错误可能导致消息丢失
+</code></pre></div><h6 id="十五kafka">十五、Kafka</h6>
+<ol start="152">
+<li>kafka 可以脱离 zookeeper 单独使用吗？为什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">不能，kafka使用zookeeper管理和协调kafka的节点服务器
+</code></pre></div><ol start="153">
+<li>kafka 有几种数据保留的策略？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">两种
+	按照过期时间保留
+	按照存储的消息大小保留
+</code></pre></div><p>154.kafka 同时设置了 7 天和 10G 清除数据，到第五天的时候消息达到了 10G，这个时候 kafka 将如何处理？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">执行数据清除工作，时间和消息大小满足一个即开始清空数据的工作
+</code></pre></div><ol start="155">
+<li>什么情况会导致 kafka 运行变慢？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CPU性能瓶颈
+磁盘读写瓶颈
+网络瓶颈
+
+总结为CPU与I/O
+</code></pre></div><ol start="156">
+<li>使用 kafka 集群需要注意什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">集群的数量不是越多越好，最好不要超过7个，因为节点越多，消息复制需要的时间就越长，整个集群的吞吐量就越低。
+集群的数量最好是单数，因为超过一半故障集群就不可用了，设置为单数容错率更高
+</code></pre></div><h6 id="十六zookeeper">十六、Zookeeper</h6>
+<ol start="157">
+<li>zookeeper 是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">zookeeper是一个分布式的，开源分布式应用程序协调程序，是hadoop和hbanse的重要组件。它是一个为分布式应用提供一致性服务的软件，提供的功能包括：配置维护、域名服务、分布式同步、组服务
+</code></pre></div><ol start="158">
+<li>zookeeper 都有哪些功能？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">集群管理：监控节点存活状态、运行请求
+主节点选举：主节点down之后可以从备用的节点开始新一轮的选举，使用zookeeper可以协助完成这个功能
+分布式锁：zookeeper提供两种锁：独占锁、共享锁。独占锁即一次只能有一个线程使用资源。共享锁即是读锁共享，读写互斥，即可以有多个线程同时读一个资源，如果要使用写锁也只能有一个线程使用。
+命名服务：在分布式系统中，通过使用命名服务，客户端应用能够根据指定名字来获取资源或服务的地址、提供者等信息
+</code></pre></div><ol start="159">
+<li>zookeeper 有几种部署模式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">三种：	
+	单机部署：一台机器上运行
+	集群部署：多台机器部署运行
+	伪集群部署：一台机器启动多个zookeeper运行
+</code></pre></div><ol start="160">
+<li>zookeeper 怎么保证主从节点的状态同步？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">zookeeper的核心是原子广播，这个机制保证了各个server之间的同步。实现这个机制的协议叫做zab协议。zab协议有两种模式，恢复模式（选举主节点）和广播模式（同步）。当服务器启动或者在领导者崩溃后，zab就进入了恢复模式，当领导者被选举出来，且大多数server完成了和leader的状态同步后，恢复模式就结束了。状态同步保证了leader和server具有相同的系统状态。
+</code></pre></div><ol start="161">
+<li>集群中为什么要有主节点？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">在分布式环境中，有些业务逻辑只需要集群中的某一台机器进行执行，其他的机器可以共享这个结果，这样可以大大减少重复计算，提高性能，所以就需要主节点。
+</code></pre></div><ol start="162">
+<li>集群中有 3 台服务器，其中一个节点宕机，这个时候 zookeeper 还可以使用吗？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">可以继续使用，单数服务器只要没超过一半的服务器宕机就可以继续使用
+</code></pre></div><ol start="163">
+<li>说一下 zookeeper 的通知机制？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">客户端会对某个zookeeper node建立一个watcher事件，当该node发生变化是，这些客户端就会收到zookeeper的同志，然后客户端可以根据zookeeper node的变化来做出业务上的改变
+</code></pre></div><h6 id="十七mysql">十七、MySql</h6>
+<ol start="164">
+<li>数据库的三范式是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">第一范式：强调的是列的原子性，即数据库表的每一列都是不可分割的原子数据项
+第二范式:要求实体的属性完全依赖于关键字。所谓完全依赖是指不能存在仅依赖关键字一部分的属性
+第三范式：任何非主属性不依赖于其他非主属性
+</code></pre></div><ol start="165">
+<li>一张自增表里面总共有 7 条数据，删除了最后 2 条数据，重启 mysql 数据库，又插入了一条数据，此时 id 是几？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">InnoDB引擎会把自增主键的最大值记录在内存中，重启后最大值记录丢失
+
+MyISAM引擎 最后一条数据的id是8
+InnoDB引擎 最后一条数据的id是6
+
+如果删除的是中间的数据，新插入的id不论类型都是8
+</code></pre></div><ol start="166">
+<li>如何获取当前数据库版本？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">select version() 
+</code></pre></div><p>167.说一下 ACID 是什么？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Atomicity 原子性 一个事务中的所有操作，或者全部完成，或者全部不完成，不会结束在中间的某个换件。事务在执行过程中发生错误，会被回复到事务开始前的状态，就像这个事务从来没有执行过一样。即事务不可分割，不可简约
+consistency 一致性 在事务开始之前和事务结束之后，数据库的完整性没有被破坏。这表示写入的资料必须完全符合所有的预设约束、触发器、级联回滚
+Isolation 隔离性 数据库允许多个并发事务同时对其数据进行读写和修改能力，隔离性可以防止多个事务并发执行由于交叉执行而导致数据的不一致。事务的隔离级别有：未提交读、读提交、可重复读和串行化
+durability 持久性 事务结束后，对数据库的修改是永久性的，即使系统发生故障也不会丢失
+</code></pre></div><ol start="168">
+<li>char 和 varchar 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">char 固定长度类型，比如char(10) 当输入 &#39;abc&#39; 三个字符时，它们占用的空间还是10个字符，其他7个是空字节。
+varchar 可变长度，存储的值的占用空间是每个值占用的字节再加上一个用来记录其长度的字节的长度
+
+char 长度固定，效率高 但占用空间
+varchar 长度可变，比char效率低，但节省空间
+</code></pre></div><ol start="169">
+<li>float 和 double 的区别是什么？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">float 单精度浮点数 最多可以存储8位十进制，在内存中占用4字节
+double 双精度浮点数 最多可以存储16位十进制，在内存中占用8字节
+</code></pre></div><p>170.mysql 的内连接、左连接、右连接有什么区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">inner join 把匹配的关联数据显示出来
+left join 构造笛卡尔集时 左表在前，左表数据全部展示，右表显示符合条件的数据
+right join 构造笛卡尔集时 右表在前，右表数据全部展示，左表显示符合条件的数据
+</code></pre></div><ol start="171">
+<li>mysql 索引是怎么实现的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">mysql中 不同存储引擎对索引的实现方式是不同的 MyISAM和InnoDB都是使用的B+树
+MyISAM
+	B+树
+		MyISAM会按照数据插入的顺序分配行号，从0开始，然后暗战数据插入的顺序存储在磁盘上。因为行是订场的，所以可以从表的开头跳过相应的字节找到所需要的行
+InnoDB
+</code></pre></div><ol start="172">
+<li>怎么验证 mysql 的索引是否满足需求？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">使用explain 执行sql解释
+	explain  select * from table where column = &#39;XX&#39;
+</code></pre></div><ol start="173">
+<li>说一下数据库的事务隔离？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">脏读：一个事务中访问到了另外一个事务未提交的数据
+不可重复读：在一个事务内根据同一个条件对记录进行多次查询，但是搜索出的内容不一致。多次搜索器件查询条件覆盖的数据被其他事务修改
+幻读：一个事务多次查询返回的结果集不一样，增加了或减少了行记录。
+
+未提交读：READ-UNCOMMITED 最低隔离级别 事务未提交前，就可被其他事务读取，会出现幻读、脏读、不可重复读
+提交读：READ-COMMITED一个事务提交后才能被其他事务读取到 会造成幻读、不可重复读
+可重复读：REPEATABLE-READ 可重复读，默认隔离级别，保存多次读取同一个数据时，其值和事务开始时候的内容是一致的，禁止读取到别的事务未提交的数据（会造成幻读）
+串行化：SERIALIZABLE 代价最高最可靠的隔离级别，能够防止脏读、不可重复读、幻读
+</code></pre></div><ol start="174">
+<li>说一下 mysql 常用的引擎？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MyISAM
+	不支持事务，也不支持外键，优势是访问速度快，对事务完整性没有要求或者以select、insert为主的应用基本上可以用这个引擎来创建表
+InnoDB
+	提供了具有提交、回滚和崩溃恢复的事务安全，相比MyISAM，写的处理效率会差一些，并且会占用更多的磁盘空间以保留数据和索引
+MEMORY
+	使用存在于内存中的内容来创建表。每个memory表只实际存对应一个磁盘文件，一旦服务关闭，表中的数据就会丢失
+MERGE
+	一组MyISAM表的组合，这些MyISAM表的结构必须完全相同，merge表本身没有数据，对merge类型的表可以进行查询，更新，删除操作，这些操作实际上是对内部的MyISAM表进行的。
+</code></pre></div><ol start="175">
+<li>说一下 mysql 的行锁和表锁？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MyISAM只支持表锁 InnoDB支持表锁和行锁，默认为行锁
+表锁：开销小，加锁快，不会出现死锁。锁定粒度大，发生锁冲突的概率最高，并发量最低
+行锁：开销大，加锁慢，会出现死锁。锁粒度小，发生锁冲突的概率最小，并发量最高
+</code></pre></div><ol start="176">
+<li>说一下乐观锁和悲观锁？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">乐观锁：每次拿数据的时候认为别人不会更改，所以不会上锁，但是在提交更新的时候会判断一下再此期间别人有没有去更新这个数据
+悲观锁：每次去拿数据的时候都认为别人会修改，所以每次拿数据的时候就会上锁，这样别人想拿这个数据就会阻止，知道这个锁被释放
+
+数据库的乐观锁需要自己实现，在表里面添加一个version字段，每次修改成功值+1，这样每次修改的时候先对比一下，自己拥有的version和数据库现有的version是否一致，如果不一致就不修改，这样就实现了乐观锁
+</code></pre></div><ol start="177">
+<li>mysql 问题排查都有哪些手段？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">使用 show processlist 命令查看当前所有连接信息。
+使用 explain 命令查询 SQL 语句执行计划。
+开启慢查询日志，查看慢查询的 SQL。
+</code></pre></div><ol start="178">
+<li>如何做 mysql 的性能优化？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">为搜索字段创建索引。
+避免使用 select *，列出需要查询的字段。
+垂直分割分表。
+选择正确的存储引擎。
+</code></pre></div><h6 id="十八redis">十八、Redis</h6>
+<ol start="179">
+<li>redis 是什么？都有哪些使用场景？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">redis是一个基于内存的可持久化key-value数据库。基于C语言编写，支持网络。
+使用场景：
+	数据高并发的读写
+	海量数据的读写
+	对扩展性要求高的数据
+</code></pre></div><ol start="180">
+<li>redis 有哪些功能？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">数据缓存功能
+分布式锁
+支持数据持久化
+支持事务
+支持消息队列
+</code></pre></div><ol start="181">
+<li>redis 和 memecache 有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">memecache 所有值均是简单字符串，redis作为其替代者，支持丰富的数据类型
+redis的速度比memecache快很多
+redis可以持久化其数据
+</code></pre></div><ol start="182">
+<li>redis 为什么是单线程的？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">cu不是redis的瓶颈，redis的瓶颈最有可能是机器内存后者网络带宽。且单线程容易实现因此使用单线程。
+</code></pre></div><ol start="183">
+<li>什么是缓存穿透？怎么解决？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">缓存穿透：查询一个不存在的数据，由于缓存不命中时需要从数据库查询，查不到数据则不写入到缓存，这将导致这个不存在的数据每次请求都要求到数据库中去查询，造成缓存穿透。
+如果一个查询返回的数据为空，就把这个空结果进行缓存，缓存过期时间设置较短，一般不超过5分钟
+</code></pre></div><ol start="184">
+<li>redis 支持的数据类型有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">string、list、hash、set、zset
+</code></pre></div><ol start="185">
+<li>redis 支持的 java 客户端都有哪些？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">redisson、jedis、lettuce。官方推荐使用redisson
+</code></pre></div><p>186.jedis 和 redisson 有哪些区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">jedis是redis的java实现的客户端，提供了较为全面的redis命令的支持
+
+redisson实现了分布式和可扩展的java数据结构，和jedis相比，功能较为简单，不支持字符串的操作，不支持排序、事务、管道、分区等redis特性。Redisson的宗旨是促进使用者对Redis的关注分离，从而让使用者能够将精力集中放在业务逻辑处理上
+</code></pre></div><ol start="187">
+<li>怎么保证缓存和数据库数据的一致性？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">设置合理的缓存过期时间
+新增、修改、删除数据库操作的同时同步更新redis，可以用事务机制保证数据的一致性。
+</code></pre></div><ol start="188">
+<li>redis 持久化有几种方式？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">两种
+	RDB 指定的时间间隔能够对你的数据进行快照存储
+	AOF 每一个收到的写命令都通过write函数追加到文件中
+</code></pre></div><ol start="189">
+<li>redis 怎么实现分布式锁？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">SET IF NOT EXIST 当key不存在时，进行set操作，如果key存在，则不作任何操作
+通过redis为分布式系统的操作设置一个flag（锁），只有拿到flag的才能进行操作，拿不到的不进行操作。
+</code></pre></div><ol start="190">
+<li>redis 分布式锁有什么缺陷？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Redis 分布式锁不能解决超时的问题，分布式锁有一个超时时间，程序的执行如果超出了锁的超时时间就会出现问题。
+场景：最近的飞天茅台秒杀事故就出现了这个问题，http请求在阻塞时长超过10s，导致分布式锁（过期时间设置成了10s）失效。
+</code></pre></div><ol start="191">
+<li>redis 如何做内存优化？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">尽可能使用散列表（hashes），散列表使用的内存非常少，将数据模型抽象到一个散列表里。
+</code></pre></div><p>192.redis 淘汰策略有哪些？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">volatitle-lru 从已经设置过期时间的数据集里挑选最近最少使用的数据淘汰
+volatitle-ttl 从已经设置过期时间的数据集里挑选将要过期的数据进行淘汰
+volatitle-random 从已经设置过期时间的数据集里任意选择数据淘汰
+allkeys-lru 从所有数据集中挑选最近最少使用的数据淘汰
+allkeys-random 从所有数据集中挑选将要过期的数据进行淘汰
+no-enviction 禁止驱逐数据
+</code></pre></div><ol start="193">
+<li>redis 常见的性能问题有哪些？该如何解决？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、主服务器写内存快照，会阻塞主线程工作，当快照比较大时，对性能影响非常大，会间断性暂停服务，所以主服务器最好不要写内存快照
+2、redis主从复制的性能问题，为了保证主从复制的速度和连接的稳定性，主从最好在一个局域网内
+</code></pre></div><h6 id="十九jvm">十九、JVM</h6>
+<ol start="194">
+<li>说一下 jvm 的主要组成部分？及其作用？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Class loader 类加载器，负责加载类文件到内存。CLass loader只管加载，只要符合文件结构就加载，不负责文件是否能够运行。
+Execution engine 解释器也叫执行引擎，负责解释命令，交由操作系统执行
+Native interface 本地方法接口 融合不同的语言为java所用。java的本地方法可以是c写的 也可以是c++？
+Runtime data area 运行时数据区 
+</code></pre></div><p>195.说一下 jvm 运行时数据区？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">	Heap 堆 java对象的存储区域，任何用new字段分配的java对象实例和数据，都被分配到堆上，java堆可用 -Xms和 -Xmx进行内存控制。jdk1.7以后，运行时常量池从方法去移动到了堆上
+	Method area 方法区 用于存储已经被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据
+		方法区并不等于永生代。本质上两者并不等价，只是hotspot虚拟机垃圾回收团队把GC分代收集扩展到了方法区，或者说用永生代来实现方法区。这样能省去专门为方法区编写内存管理的代码。jdk8移除了永生代，使用native memory来实现方法区
+	Stack 虚拟机栈 线程私有，虚拟机中每执行一个方法调用，都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息
+		
+	PC Register程序计数器 指示java虚拟机下一条需要执行的字节码指令
+	
+	Native Method Stack 本地方法栈 与虚拟机栈类似，本地方法栈为虚拟机使用的native方法服务，执行每个本地方法时，都会创建一个栈帧用于存储局部变量表，操作数栈，动态链接，方法出口等信息
+</code></pre></div><ol start="196">
+<li>说一下堆 栈的区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">1、栈内存存储的是局部变量，而堆存储的是实体
+2、栈内存的更新速度要快于堆内存，因为局部变量的生命周期很短
+3、占内存放的变量生命周期一代结束就会被释放，而堆内存存放的实体会被垃圾回收机制不定时的回收
+</code></pre></div><ol start="197">
+<li>队列和栈是什么？有什么区别？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">队列和栈都是用来存储数据的集合
+队列允许数据先进先出（Deque允许从两头检索数据），栈是先进后出
+</code></pre></div><ol start="198">
+<li>什么是双亲委派模型？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">双亲委派模型指的是类加载器
+java中所有的类都要先被类加载器加载才能执行。每一个类加载器都有其独立的类命名空间。
+类加载器分类：
+	Bootstrap CLassLoader 虚拟机的一部分，用来加载java_home/lib/目录下及 -Xbootclasspath参数锁指定的路径中被虚拟机识别的类库
+其他类加载器：
+	Extension ClassLoader 扩展类加载器 负责加载java_home/lib/ext目录或java.ext.dirs系统变量指定的路径中的所有类库
+	Application ClassLoader 应用程序类加载器 负责加载用户类路径（classpath）上的指定类库。我们可以直接使用这个类加载器。一般情况下，如果没有自定义类加载器默认使用Application Classloader
+	
+双亲委派模型 如果一个类加载器收到了类加载的请求，他首先不会自己去加载这个类，而是把这个请求转发给自己的父类加载器去完成，每一层类加载器都是如此，直到Bootstrap CLassLoader。只有父类无法完成加载请求（在它的搜索范围内没有找到所需的类）时，子类加载器才会尝试进行加载
+</code></pre></div><p>199.说一下类加载的执行过程？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">加载 根据查找路径找到相应的class文件然后读取
+校验 检查加载的class文件的正确性
+准备 给类中的静态变量分配内存空间
+解析 虚拟机将常量池中的符号引用替换成直接引用的过程。符号引用理解为一个标识，而在直接引用中直接指向内存中的地址
+初始化 对静态变量和静态代码进行初始化工作
+使用
+卸载
+</code></pre></div><p>200.怎么判断对象是否可以被回收？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">引用计数器：为每个对象创建一个引用计数器，有对象引用时计数器+1，引用被释放时计数器-1，当计数器为0时对象可以被回收。缺点：不能解决循环引用
+可达性分析：从GC Roots开始向下搜索，搜索所走过的路径称为引用链。当一个对象到GC Roots没有任何引用链时，则证明此对象时可以被回收的
+</code></pre></div><ol start="201">
+<li>java中都有哪些引用类型？</li>
+</ol>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">强引用
+软引用
+弱引用
+虚引用
+</code></pre></div><p>202.说一下 jvm 有哪些垃圾回收算法？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">标记-清除算法
+标记-整理算法
+复制算法
+分代算法
+</code></pre></div><p>203.说一下 jvm 有哪些垃圾回收器？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">Serial：最早的单线程串行垃圾回收器。
+Serial Old：Serial 垃圾回收器的老年版本，同样也是单线程的，可以作为 CMS 垃圾回收器的备选预案。
+ParNew：是 Serial 的多线程版本。
+Parallel 和 ParNew 收集器类似是多线程的，但 Parallel 是吞吐量优先的收集器，可以牺牲等待时间换取系统的吞吐量。
+Parallel Old 是 Parallel 老生代版本，Parallel 使用的是复制的内存回收算法，Parallel Old 使用的是标记-整理的内存回收算法。
+CMS：一种以获得最短停顿时间为目标的收集器，非常适用 B/S 系统。
+G1：一种兼顾吞吐量和停顿时间的 GC 实现，是 JDK 9 以后的默认 GC 选项。
+</code></pre></div><p>204.详细介绍一下 CMS 垃圾回收器？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">CMS 是英文 Concurrent Mark-Sweep 的简称，是以牺牲吞吐量为代价来获得最短回收停顿时间的垃圾回收器。对于要求服务器响应速度的应用上，这种垃圾回收器非常适合。在启动 JVM 的参数加上“-XX:+UseConcMarkSweepGC”来指定使用 CMS 垃圾回收器。
+
+CMS 使用的是标记-清除的算法实现的，所以在 gc 的时候回产生大量的内存碎片，当剩余内存不能满足程序运行要求时，系统将会出现 Concurrent Mode Failure，临时 CMS 会采用 Serial Old 回收器进行垃圾清除，此时的性能将会被降低。
+</code></pre></div><p>205.新生代垃圾回收器和老生代垃圾回收器都有哪些？有什么区别？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">新生代回收器：Serial、ParNew、Parallel Scavenge
+老年代回收器：Serial Old、Parallel Old、CMS
+整堆回收器：G1
+新生代垃圾回收器一般采用的是复制算法，复制算法的优点是效率高，缺点是内存利用率低；老年代回收器一般采用的是标记-整理的算法进行垃圾回收
+</code></pre></div><p>206.简述分代垃圾回收器是怎么工作的？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">分代回收器有两个分区：新生代和老年代，新生代默认的空间占比总空间的 1/3，老年代的默认占比是 2/3。
+新生代使用的是复制算法，新生代里有 3 个分区：Eden、To Survivor、From Survivor，它们的默认占比是 8:1:1，它的执行流程如下
+把 Eden + From Survivor 存活的对象放入 To Survivor 区；
+清空 Eden 和 From Survivor 分区；
+From Survivor 和 To Survivor 分区交换，From Survivor 变 To Survivor，To Survivor 变 From Survivor。
+每次在 From Survivor 到 To Survivor 移动时都存活的对象，年龄就 +1，当年龄到达 15（默认配置是 15）时，升级为老生代。大对象也会直接进入老生代
+老生代当空间占用到达某个值之后就会触发全局垃圾收回，一般使用标记整理的执行算法。以上这些循环往复就构成了整个分代垃圾回收的整体执行流程
+</code></pre></div><p>207.说一下 jvm 调优的工具？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">JDK 自带了很多监控工具，都位于 JDK 的 bin 目录下，其中最常用的是 jconsole 和 jvisualvm 这两款视图监控工具。
+
+jconsole：用于对 JVM 中的内存、线程和类等进行监控；
+jvisualvm：JDK 自带的全能分析工具，可以分析：内存快照、线程快照、程序死锁、监控内存的变化、gc 变化等
+</code></pre></div><p>208.常用的 jvm 调优的参数都有哪些？</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">-Xms：初始化推内存大小；
+-Xmx：堆内存最大；
+-XX:NewRatio=4：设置young和old的比例，值为old:young；
+-XX:SurvivorRatio=8：设置新生代 Eden 和 Survivor 比例,因为sruvivor是2个，且大小一致，值为eden:(一个)Survivor。
+–XX:+UseParNewGC：指定使用 ParNew + Serial Old 垃圾回收器组合；
+-XX:+UseParallelOldGC：指定使用 ParNew + ParNew Old 垃圾回收器组合；
+-XX:+UseConcMarkSweepGC：指定使用 CMS + Serial Old 垃圾回收器组合；
+-XX:+PrintGC：开启打印 gc 信息；
+-XX:+PrintGCDetails：打印 gc 详细信息。
+</code></pre></div>
+</div>
+</div>
+
+    
+  </div>
+
+  <div class="sub-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="sub-footer-inner">
+          <ul>
+            <li class="zerostatic"><a href="https://www.zerostatic.io">www.zerostatic.io</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/scripts.min.1237ff71925bb8625c97a9af8db4c54525258bedfd7c47493daaff723bea755e.js"></script>
+  
+
+  
+  
+  
+    
+  
+
+
+</body>
+
+</html>
